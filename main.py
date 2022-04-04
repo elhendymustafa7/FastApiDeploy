@@ -11,7 +11,10 @@ from warnings import filterwarnings
 
 app = FastAPI()
 
-
+@app.post("/file")
+def hello(item:str):
+    return {item:"Hello TutLinks.com"} 
+    
 @app.post("/files")
 async def UploadImage(file: bytes = File(...)):
     with open(f'as.jpg','wb') as image:
